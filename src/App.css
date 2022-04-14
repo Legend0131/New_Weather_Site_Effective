@@ -1,12 +1,88 @@
 body {
 }
-
-.card-inf{
+.card-inf{  /*Стили информационной карточки*/
   margin-bottom: 2.2vh;
   font-weight: bold;
 }
+.centring{
+  text-align: center;
+}
+.card{   /*Стили карточек*/
+  text-align: center;
+  height: 20vh;
+}
+.wrapper { /*Стили фона*/
+  height: 100vh;
+  overflow:  hidden;
 
-/*Bootstrap*/
+  background:
+  		linear-gradient(rgba(135, 60, 255, 0.4), rgba(135, 60, 255, 0.0) 80%),
+  		linear-gradient(-45deg, rgba(120, 155, 255, 0.9) 25%, rgba(255, 160, 65, 0.9) 75%);
+}
+
+input[type="text"] { /*Стили строки ввода*/
+  background-color: transparent;
+  border: 0;
+  border-bottom: solid 2px #113a65;
+  width: 16%;
+  padding-bottom: 5px;
+  color: #fff;
+  font-weight: lighter;
+  margin-bottom: 1.2%;
+  margin-right: 0.3%;
+  font-size: 25px;
+  outline: none;
+  opacity: 0.8;
+  text-align: center
+}
+
+input::-webkit-input-placeholder {
+  color: #103a65;
+  text-align: center;
+}
+
+input::-moz-placeholder {
+  color: #103a65;
+}
+
+button {  /*Стили кнопки*/
+  border: 1px solid #103a65;
+  border-bottom: 3px solid #103a65;
+  padding: 8px 20px;
+  margin: 0 2px;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #235d9c;
+  color: #fff;
+  outline: none!important;
+  opacity: 0.85;
+}
+
+button:hover {  /*Стили состояний кнопки*/
+  border-bottom: 2px solid #103a65;
+  position: relative;
+  top: 2px;
+  opacity: 1;
+
+}
+
+button:active {   /*Стили состояний кнопки*/
+  border-bottom: 2px solid transparent;
+
+  position: relative;
+  top: 2px;
+  opacity: 0.8;
+}
+
+.error {
+  font-size: 25px;
+  color: #041f3c;
+  font-weight: bold;
+}
+
+
+
+/*Bootstrap*/ /*Использвоался для внесения корректировок, без изменения изначального bootstrap*/
 
 .col-md-4 {
 
@@ -14,9 +90,7 @@ body {
   padding-top: 6.8vh;
   padding-right: 10vh;
 }
-
-
-.card_inf {
+.card_inf { /*Информационная карточка, с подписями где и что*/
   position: relative;
   display: flex;
   flex-direction: column;
@@ -26,7 +100,7 @@ body {
   border: 5px solid rgba(0, 0, 0, 0.425);
   border-radius: 0.25rem;
 }
-.card {
+.card { /*Карточки с данными о погоде*/
   position: relative;
   display: flex;
   flex-direction: column;
@@ -59,25 +133,18 @@ body {
 .card > .list-group + .card-footer {
   border-top: 0;
 }
-
-
-
-
-
-
-
 .card-group > .card {
   margin-bottom: 0.75rem;
   background-color: transparent;
   height: 68vh;
 }
 @media (min-width: 576px) {
-  .card-group {
+  .card-group { /*Стили ГРУППЫ карточек*/
     display: flex;
     flex-flow: row wrap;
   }
   .card-group > .card {
-    flex: 1 0 0%;
+    flex: 1 0 0;
     margin-bottom: 0;
   }
   .card-group > .card + .card {
@@ -110,94 +177,3 @@ body {
   }
 }
 /*Bootstrap*/
-
-
-
-
-
-
-.centring{
-  text-align: center;
-
-}
-.card{
-  text-align: center;
-  height: 20vh;
-  lenth: 2vh;
-}
-.card_wrapper{
-}
-
-
-.wrapper {
-  height: 100vh;
-  overflow:  hidden;
-  /*display: flex;*/
-  /*justify-content: center;
-  align-items: center;*/
-
-  background:
-  		linear-gradient(rgba(135, 60, 255, 0.4), rgba(135, 60, 255, 0.0) 80%),
-  		linear-gradient(-45deg, rgba(120, 155, 255, 0.9) 25%, rgba(255, 160, 65, 0.9) 75%);
-}
-
-input[type="text"] {
-  background-color: transparent;
-  border: 0;
-  border-bottom: solid 2px #113a65;
-  width: 16%;
-  padding-bottom: 5px;
-  color: #fff;
-  font-weight: lighter;
-  margin-bottom: 1.2%;
-  margin-right: 0.3%;
-  font-size: 25px;
-  outline: none;
-  opacity: 0.8;
-  text-align: center
-}
-
-input::-webkit-input-placeholder {
-  color: #103a65;
-  text-align: center;
-}
-
-input::-moz-placeholder {
-  color: #103a65;
-
-}
-
-button {
-  border: 1px solid #103a65;
-  border-bottom: 3px solid #103a65;
-  padding: 8px 20px;
-  margin: 0 2px;
-  border-radius: 20px;
-  cursor: pointer;
-  background-color: #235d9c;
-  color: #fff;
-  outline: none!important;
-  opacity: 0.85;
-}
-
-button:hover {
-  border-bottom: 2px solid #103a65;
-  position: relative;
-  top: 2px;
-  opacity: 1;
-
-}
-
-button:active {
-  border-bottom: 2px solid transparent;
-  border-color: transparent;
-  position: relative;
-  top: 2px;
-  opacity: 0.8;
-}
-
-.error {
-  font-size: 25px;
-  color: #041f3c;
-  font-weight: bold;
-}
