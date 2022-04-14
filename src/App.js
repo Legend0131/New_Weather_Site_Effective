@@ -79,11 +79,11 @@ class Base extends React.Component{
 
       this.setState({ // This.setState - установка состояния переменных.
         //temp: data.main.temp, //переменная temp принимает значение указаное в пути data(Json), затем ищет main, а в нем находит temp.
-        city: data.city.name,
+        city: data.city.name, //состояние для "Location"
         //pressure: data.list[0].pressure,
         //sunset: sunset_date, //sunset_date - преобразованные данные из data(Json)
         //sunrise: sunrise_date,
-        dt: dt_m[0], //эксперемент
+        dt: dt_m[0], //состояние для "Today's date"
         error: undefined,
 
           day_0:[
@@ -95,90 +95,80 @@ class Base extends React.Component{
               data.list[0].temp.day,
               data.list[0].temp.min,
 
-              sr_m[0],
-              ss_m[0],
-
-              data.list[0].pressure,
-              data.list[0].humidity,
+              data.list[0].weather[0].description,
               data.list[0].speed,
-              data.list[0].weather[0].description
-
+              data.list[0].humidity,
+              data.list[0].pressure,
+              sr_m[0],
+              ss_m[0]
 ],
 
           day_1:[
-            //data.list[1].dt,
+              //data.list[1].weather[0].icon,
+
               dt_m[1],
+              data.list[1].temp.night,
+              data.list[1].temp.eve,
+              data.list[1].temp.day,
+              data.list[1].temp.min,
 
-            data.list[1].temp.night,
-            data.list[1].temp.eve,
-            data.list[1].temp.day,
-            data.list[1].temp.min,
-
+              data.list[1].weather[0].description,
+              data.list[1].speed,
+              data.list[1].humidity,
+              data.list[1].pressure,
               sr_m[1],
-              ss_m[1],
-
-            data.list[1].pressure,
-            data.list[1].humidity,
-            data.list[1].speed,
-            data.list[1].weather[0].description
-
+              ss_m[1]
           ],
 
           day_2:[
-              //data.list[1].dt,
-              dt_m[2],
+              //data.list[2].weather[0].icon,
 
+              dt_m[2],
               data.list[2].temp.night,
               data.list[2].temp.eve,
               data.list[2].temp.day,
               data.list[2].temp.min,
 
-              sr_m[2],
-              ss_m[2],
-
-              data.list[2].pressure,
-              data.list[2].humidity,
+              data.list[2].weather[0].description,
               data.list[2].speed,
-              data.list[2].weather[0].description
-
+              data.list[2].humidity,
+              data.list[2].pressure,
+              sr_m[2],
+              ss_m[2]
           ],
 
           day_3:[
-              //data.list[1].dt,
-              dt_m[3],
+              //data.list[3].weather[0].icon,
 
+              dt_m[3],
               data.list[3].temp.night,
               data.list[3].temp.eve,
               data.list[3].temp.day,
               data.list[3].temp.min,
 
-              sr_m[3],
-              ss_m[3],
-
-              data.list[3].pressure,
-              data.list[3].humidity,
+              data.list[3].weather[0].description,
               data.list[3].speed,
-              data.list[3].weather[0].description
-
+              data.list[3].humidity,
+              data.list[3].pressure,
+              sr_m[3],
+              ss_m[3]
           ],
 
           day_4:[
-              //data.list[1].dt,
-              dt_m[4],
+              //data.list[4].weather[0].icon,
 
+              dt_m[4],
               data.list[4].temp.night,
               data.list[4].temp.eve,
               data.list[4].temp.day,
               data.list[4].temp.min,
 
-              sr_m[4],
-              ss_m[4],
-
-              data.list[4].pressure,
-              data.list[4].humidity,
+              data.list[4].weather[0].description,
               data.list[4].speed,
-              data.list[4].weather[0].description
-
+              data.list[4].humidity,
+              data.list[4].pressure,
+              sr_m[4],
+              ss_m[4]
           ]
 
       });
@@ -215,7 +205,7 @@ class Base extends React.Component{
 
                     dt={this.state.dt} //эксперемент
 
-                    //error={this.state.error}
+                    error={this.state.error}
                     day_0={this.state.day_0}
                     day_1={this.state.day_1}
                     day_2={this.state.day_2}

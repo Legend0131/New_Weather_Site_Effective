@@ -1,9 +1,31 @@
 body {
 }
 
+.card-inf{
+  margin-bottom: 2.2vh;
+  font-weight: bold;
+}
 
 /*Bootstrap*/
 
+.col-md-4 {
+
+  width: 33.33333333%;
+  padding-top: 6.8vh;
+  padding-right: 10vh;
+}
+
+
+.card_inf {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border: 5px solid rgba(0, 0, 0, 0.425);
+  border-radius: 0.25rem;
+}
 .card {
   position: relative;
   display: flex;
@@ -14,8 +36,6 @@ body {
   background-clip: border-box;
   border: 5px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
-  height: 2vh;
-  width: 2vh;
 }
 .card > hr {
   margin-right: 0;
@@ -49,6 +69,7 @@ body {
 .card-group > .card {
   margin-bottom: 0.75rem;
   background-color: transparent;
+  height: 68vh;
 }
 @media (min-width: 576px) {
   .card-group {
@@ -110,6 +131,7 @@ body {
 
 .wrapper {
   height: 100vh;
+  overflow:  hidden;
   /*display: flex;*/
   /*justify-content: center;
   align-items: center;*/
@@ -127,8 +149,8 @@ input[type="text"] {
   padding-bottom: 5px;
   color: #fff;
   font-weight: lighter;
-  margin-bottom: 2%;
-  margin-right: 2%;
+  margin-bottom: 1.2%;
+  margin-right: 0.3%;
   font-size: 25px;
   outline: none;
   opacity: 0.8;
