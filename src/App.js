@@ -46,18 +46,6 @@ class Base extends React.Component{
       const data = await api_url.json(); //преображение информации, которая была в ссылке, в Json формат и записываем ее в переменную data.
 
       console.log(data);
-
-      //Ниже идет элемент кода овтечающий за коррекртный вывод дат и времени.
-      var sunset = data.list[0].sunset; //data.sys.sunset - секунды которые мы получили в data(Json).
-      var date = new Date(); //new Date - сегодняшняя дата.
-      date.setTime(sunset); //setTime - фунция React, sunset отслеживаемая дата.
-      var sunset_date = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();//конструкция для получения корректного времени, которая записывается в sunset_date.
-
-      var sunrise = data.list[0].sunrise; //data.sys.sunset - секунды которые мы получили в data(Json).
-      var date = new Date(); //new Date - сегодняшняя дата.
-      date.setTime(sunrise); //setTime - фунция React, sunset отслеживаемая дата.
-      var sunrise_date = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();//конструкция для получения корректного времени, которая записывается в sunset_date.
-
         //var dt = data.city.timezone //Старый метод отвечающий за вывод даты на 0 день.
         //var date = new Date();
         //date.setUTCMilliseconds(dt);
@@ -74,9 +62,9 @@ class Base extends React.Component{
         var sr = data.list[0].sunrise;   //Метод отвечающий за корректный вывод времены восхода солца.
         var sr_m = [];
         for(var i = 0; i < 5; i++ ){
-            sr_m[i]=data.list[i].sunrise;
+            sr_m[i]=data.list[i].sunrise; //data.list[i].sunset - секунды которые мы получили в data(Json).
             const date = new Date(sr_m[i]);
-            date.setTime(sr_m[i])
+            date.setTime(sr_m[i])   //setTime - фунция React, sunset отслеживаемая дата.
             sr_m[i] = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
         }
 
