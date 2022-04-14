@@ -56,34 +56,65 @@ class Base extends React.Component{
       date.setTime(sunrise); //setTime - фунция React, sunset отслеживаемая дата.
       var sunrise_date = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();//конструкция для получения корректного времени, которая записывается в sunset_date.
 
+      //var dt = data.list[0].dt;
+      //var date = new Date();
+      //date.setTime(dt);
+      //var dt_date = date.getDay() + ":" + date.getMonth() + ":" + date.getFullYear();
+
+        //var dt = data.city.timezone
+        //var date = new Date();
+        //date.setUTCMilliseconds(dt);
+        //var dt_date = date.toDateString();
+
+        //var dt = data.city.timezone
+        //var date = new Date();
+        //var dt_date = date.toDateString();
+
+        //var dt = data.city.timezone //Метод отвечающий за корректный вывод даты для 0 дня.
+        //var dt = data.list[0].dt;
+        //var date = new Date();
+        //date.setUTCMilliseconds(dt);
+        //var dt_date = date.toLocaleDateString();
+
+        var dt = data.list[0].dt;   //Метод отвечающий за корректный вывод даты для 0 дня.
+        var dt_m = [];
+        for(var i = 0; i < 5; i++ ){
+            dt_m[i]=(dt+i*86400)*1000;
+            const date = new Date(dt_m[i]);
+            dt_m[i] = date.toLocaleDateString();
+        }
+
+
       this.setState({ // This.setState - установка состояния переменных.
         //temp: data.main.temp, //переменная temp принимает значение указаное в пути data(Json), затем ищет main, а в нем находит temp.
         city: data.city.name,
         pressure: data.list[0].pressure,
         sunset: sunset_date, //sunset_date - преобразованные данные из data(Json)
         sunrise: sunrise_date,
+        dt: dt_m[0], //эксперемент
         error: undefined,
 
           day_0:[
-              data.list[0].dt,
-
+              //data.list[0].dt,
+              dt_m[0],
               data.list[0].temp.night,
               data.list[0].temp.eve,
               data.list[0].temp.day,
               data.list[0].temp.min,
 
-              data.list[0].sunrise,
-              data.list[0].sunset,
+              sunrise_date,
+              sunset_date,
 
               data.list[0].pressure,
               data.list[0].humidity,
               data.list[0].speed,
-              data.list[0].weather.description
+              data.list[0].weather[0].description
 
 ],
 
           day_1:[
-            data.list[1].dt,
+            //data.list[1].dt,
+              dt_m[1],
 
             data.list[1].temp.night,
             data.list[1].temp.eve,
@@ -96,7 +127,64 @@ class Base extends React.Component{
             data.list[1].pressure,
             data.list[1].humidity,
             data.list[1].speed,
-            data.list[1].weather.description
+            data.list[1].weather[0].description
+
+          ],
+
+          day_2:[
+              //data.list[1].dt,
+              dt_m[2],
+
+              data.list[2].temp.night,
+              data.list[2].temp.eve,
+              data.list[2].temp.day,
+              data.list[2].temp.min,
+
+              data.list[2].sunrise,
+              data.list[2].sunset,
+
+              data.list[2].pressure,
+              data.list[2].humidity,
+              data.list[2].speed,
+              data.list[2].weather[0].description
+
+          ],
+
+          day_3:[
+              //data.list[1].dt,
+              dt_m[3],
+
+              data.list[3].temp.night,
+              data.list[3].temp.eve,
+              data.list[3].temp.day,
+              data.list[3].temp.min,
+
+              data.list[3].sunrise,
+              data.list[3].sunset,
+
+              data.list[3].pressure,
+              data.list[3].humidity,
+              data.list[3].speed,
+              data.list[3].weather[0].description
+
+          ],
+
+          day_4:[
+              //data.list[1].dt,
+              dt_m[4],
+
+              data.list[4].temp.night,
+              data.list[4].temp.eve,
+              data.list[4].temp.day,
+              data.list[4].temp.min,
+
+              data.list[4].sunrise,
+              data.list[4].sunset,
+
+              data.list[4].pressure,
+              data.list[4].humidity,
+              data.list[4].speed,
+              data.list[4].weather[0].description
 
           ]
 
@@ -119,7 +207,7 @@ class Base extends React.Component{
     }
 }
 
-//За вывод информации отвечает как Container, так и Weather, они связаны в App.j.s
+   //За вывод информации отвечает как Container, так и Weather, они связаны в App.j.s
     render() {
     return(
         <div className="wrapper">
@@ -129,10 +217,18 @@ class Base extends React.Component{
           temp={this.state.temp}
           city={this.state.city}
           country={this.state.country}
+
+          dt={this.state.dt} //эксперемент
+
           sunrise={this.state.sunrise}
           sunset={this.state.sunset}
           error={this.state.error}
+          day_0={this.state.day_0}
           day_1={this.state.day_1}
+          day_2={this.state.day_2}
+          day_3={this.state.day_3}
+
+
           />
           <div>Helloworld</div>
         </div>
