@@ -215,7 +215,7 @@ class Base extends React.Component{
 
                     dt={this.state.dt} //эксперемент
 
-                    error={this.state.error}
+                    //error={this.state.error}
                     day_0={this.state.day_0}
                     day_1={this.state.day_1}
                     day_2={this.state.day_2}
