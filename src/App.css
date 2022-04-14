@@ -1,11 +1,27 @@
 body {
 }
 
+.centring{
+  text-align: center;
+
+}
+.card{
+  text-align: center;
+  height: 20vh;
+  lenth: 2vh;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
 .wrapper {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /*display: flex;*/
+  /*justify-content: center;
+  align-items: center;*/
 
   background:
   		linear-gradient(rgba(135, 60, 255, 0.4), rgba(135, 60, 255, 0.0) 80%),
@@ -16,23 +32,26 @@ input[type="text"] {
   background-color: transparent;
   border: 0;
   border-bottom: solid 2px #113a65;
-  width: 35%;
-  padding-bottom: 6px;
+  width: 16%;
+  padding-bottom: 5px;
   color: #fff;
   font-weight: lighter;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  margin-bottom: 2%;
+  margin-right: 2%;
   font-size: 25px;
   outline: none;
-  opacity: 0.8
+  opacity: 0.8;
+  text-align: center
 }
 
 input::-webkit-input-placeholder {
   color: #103a65;
+  text-align: center;
 }
 
 input::-moz-placeholder {
   color: #103a65;
+
 }
 
 button {
@@ -45,12 +64,15 @@ button {
   background-color: #235d9c;
   color: #fff;
   outline: none!important;
+  opacity: 0.85;
 }
 
 button:hover {
   border-bottom: 2px solid #103a65;
   position: relative;
   top: 2px;
+  opacity: 1;
+
 }
 
 button:active {
@@ -58,6 +80,7 @@ button:active {
   border-color: transparent;
   position: relative;
   top: 2px;
+  opacity: 0.8;
 }
 
 .error {

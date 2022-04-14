@@ -2,12 +2,14 @@ import React from "react";
 import Container from "./components/Container"; //component import
 import Specification from "./components/Specification"; //component import
 import Weather from "./components/Weather";
+import Logo from "./components/Logo";
 
 const API_KEY = "42cf5b186b9d9b71dfacf22fee0e4a58";
 
 class Base extends React.Component{
 
   state = { //состояния переменных.
+    icon: undefined,  //эксп
     temp: undefined,
     //feels_like: undefined,
     city: undefined,
@@ -56,12 +58,12 @@ class Base extends React.Component{
       date.setTime(sunrise); //setTime - фунция React, sunset отслеживаемая дата.
       var sunrise_date = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();//конструкция для получения корректного времени, которая записывается в sunset_date.
 
-        //var dt = data.city.timezone
+        //var dt = data.city.timezone //Старый метод отвечающий за вывод даты на 0 день.
         //var date = new Date();
         //date.setUTCMilliseconds(dt);
         //var dt_date = date.toDateString();
 
-        var dt = data.list[0].dt;   //Метод отвечающий за корректный вывод даты для 0 дня.
+        var dt = data.list[0].dt;   //Метод отвечающий за корректный вывод даты для всех 5 дней.
         var dt_m = [];
         for(var i = 0; i < 5; i++ ){
             dt_m[i]=(dt+i*86400)*1000;
@@ -69,18 +71,18 @@ class Base extends React.Component{
             dt_m[i] = date.toLocaleDateString();
         }
 
-
       this.setState({ // This.setState - установка состояния переменных.
         //temp: data.main.temp, //переменная temp принимает значение указаное в пути data(Json), затем ищет main, а в нем находит temp.
         city: data.city.name,
-        pressure: data.list[0].pressure,
-        sunset: sunset_date, //sunset_date - преобразованные данные из data(Json)
-        sunrise: sunrise_date,
+        //pressure: data.list[0].pressure,
+        //sunset: sunset_date, //sunset_date - преобразованные данные из data(Json)
+        //sunrise: sunrise_date,
         dt: dt_m[0], //эксперемент
         error: undefined,
 
           day_0:[
-              //data.list[0].dt,
+              //data.list[0].weather[0].icon,
+
               dt_m[0],
               data.list[0].temp.night,
               data.list[0].temp.eve,
@@ -195,28 +197,55 @@ class Base extends React.Component{
    //За вывод информации отвечает как Container, так и Weather, они связаны в App.j.s
     render() {
     return(
+
         <div className="wrapper">
+            <div className="centring">
+
+            <Specification/>
+            <Container weatherInf={this.ParcingWeather}/>
+
+                <Weather
+                    city={this.state.city}
+
+                    dt={this.state.dt} //эксперемент
+
+                    error={this.state.error}
+                    day_0={this.state.day_0}
+                    day_1={this.state.day_1}
+                    day_2={this.state.day_2}
+                    day_3={this.state.day_3}
+                />
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+        /*<div className="wrapper">
           <Specification/>
           <Container weatherInf={this.ParcingWeather}/>
           <Weather
-          temp={this.state.temp}
           city={this.state.city}
-          country={this.state.country}
 
           dt={this.state.dt} //эксперемент
 
-          sunrise={this.state.sunrise}
-          sunset={this.state.sunset}
           error={this.state.error}
           day_0={this.state.day_0}
           day_1={this.state.day_1}
           day_2={this.state.day_2}
           day_3={this.state.day_3}
+          />
 
+          <Logo
 
           />
-          <div>Helloworld</div>
-        </div>
+
+        </div>*/
     )
     }
 
