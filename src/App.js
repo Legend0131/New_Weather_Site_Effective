@@ -56,25 +56,10 @@ class Base extends React.Component{
       date.setTime(sunrise); //setTime - фунция React, sunset отслеживаемая дата.
       var sunrise_date = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();//конструкция для получения корректного времени, которая записывается в sunset_date.
 
-      //var dt = data.list[0].dt;
-      //var date = new Date();
-      //date.setTime(dt);
-      //var dt_date = date.getDay() + ":" + date.getMonth() + ":" + date.getFullYear();
-
         //var dt = data.city.timezone
         //var date = new Date();
         //date.setUTCMilliseconds(dt);
         //var dt_date = date.toDateString();
-
-        //var dt = data.city.timezone
-        //var date = new Date();
-        //var dt_date = date.toDateString();
-
-        //var dt = data.city.timezone //Метод отвечающий за корректный вывод даты для 0 дня.
-        //var dt = data.list[0].dt;
-        //var date = new Date();
-        //date.setUTCMilliseconds(dt);
-        //var dt_date = date.toLocaleDateString();
 
         var dt = data.list[0].dt;   //Метод отвечающий за корректный вывод даты для 0 дня.
         var dt_m = [];
