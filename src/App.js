@@ -30,7 +30,7 @@ class Base extends React.Component{
         fetch("https://api.openweathermap.org/data/2.5/forecast/daily?q=" + city + "&cnt=" + count_days + "&appid=" + API_KEY + "&units=metric");
       const data = await api_url.json(); //преображение информации, которая была в ссылке, в Json формат и записываем ее в переменную data.
 
-      //console.log(data); //Вывод логов.
+      console.log(data); //Вывод логов.
 
         var dt = data.list[0].dt;   //Метод отвечающий за корректный вывод даты для 5 дней.
         var dt_m = [];
