@@ -71,6 +71,24 @@ class Base extends React.Component{
             dt_m[i] = date.toLocaleDateString();
         }
 
+        var sr = data.list[0].sunrise;   //Метод отвечающий за корректный вывод времены восхода солца.
+        var sr_m = [];
+        for(var i = 0; i < 5; i++ ){
+            sr_m[i]=data.list[i].sunrise;
+            const date = new Date(sr_m[i]);
+            date.setTime(sr_m[i])
+            sr_m[i] = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+        }
+
+        var ss = data.list[0].sunset;   //Метод отвечающий за корректный вывод времены захода солца.
+        var ss_m = [];
+        for(var i = 0; i < 5; i++ ){
+            ss_m[i]=data.list[i].sunset;
+            const date = new Date(ss_m[i]);
+            date.setTime(ss_m[i])
+            ss_m[i] = date.getHours() + 12 + ":" + date.getMinutes() + ":" + date.getSeconds();
+        }
+
       this.setState({ // This.setState - установка состояния переменных.
         //temp: data.main.temp, //переменная temp принимает значение указаное в пути data(Json), затем ищет main, а в нем находит temp.
         city: data.city.name,
@@ -89,8 +107,8 @@ class Base extends React.Component{
               data.list[0].temp.day,
               data.list[0].temp.min,
 
-              sunrise_date,
-              sunset_date,
+              sr_m[0],
+              ss_m[0],
 
               data.list[0].pressure,
               data.list[0].humidity,
@@ -108,8 +126,8 @@ class Base extends React.Component{
             data.list[1].temp.day,
             data.list[1].temp.min,
 
-            data.list[1].sunrise,
-            data.list[1].sunset,
+              sr_m[1],
+              ss_m[1],
 
             data.list[1].pressure,
             data.list[1].humidity,
@@ -127,8 +145,8 @@ class Base extends React.Component{
               data.list[2].temp.day,
               data.list[2].temp.min,
 
-              data.list[2].sunrise,
-              data.list[2].sunset,
+              sr_m[2],
+              ss_m[2],
 
               data.list[2].pressure,
               data.list[2].humidity,
@@ -146,8 +164,8 @@ class Base extends React.Component{
               data.list[3].temp.day,
               data.list[3].temp.min,
 
-              data.list[3].sunrise,
-              data.list[3].sunset,
+              sr_m[3],
+              ss_m[3],
 
               data.list[3].pressure,
               data.list[3].humidity,
@@ -165,8 +183,8 @@ class Base extends React.Component{
               data.list[4].temp.day,
               data.list[4].temp.min,
 
-              data.list[4].sunrise,
-              data.list[4].sunset,
+              sr_m[4],
+              ss_m[4],
 
               data.list[4].pressure,
               data.list[4].humidity,
@@ -214,6 +232,7 @@ class Base extends React.Component{
                     day_1={this.state.day_1}
                     day_2={this.state.day_2}
                     day_3={this.state.day_3}
+                    day_4={this.state.day_4}
                 />
 
             </div>
